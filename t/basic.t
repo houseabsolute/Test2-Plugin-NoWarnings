@@ -5,12 +5,7 @@ our $VERSION = '0.01';
 
 use Test2::API qw( intercept );
 use Test2::Bundle::Extended;
-
-BEGIN {
-    # We don't want the warnings actually going to STDERR
-    $SIG{__WARN__} = 'IGNORE';
-    require Test2::Plugin::NoWarnings;
-}
+use Test2::Plugin::NoWarnings echo => 0;
 
 my $events = intercept {
     ok(1);
