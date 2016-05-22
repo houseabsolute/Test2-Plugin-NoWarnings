@@ -9,7 +9,7 @@ use Test2::Plugin::NoWarnings echo => 0;
 
 my $events = intercept {
     ok(1);
-    warn "Oh noes!";
+    warn 'Oh noes!';
     ok(2);
 };
 

@@ -8,6 +8,7 @@ our $VERSION = '0.01';
 use Test2::API qw( context_do );
 
 my $echo = 0;
+
 sub import {
     shift;
     my %args = @_;
@@ -16,12 +17,14 @@ sub import {
 }
 
 my $_orig_warn_handler = $SIG{__WARN__};
+## no critic (Variables::RequireLocalizedPunctuationVars)
 $SIG{__WARN__} = sub {
     context_do {
         my $ctx = shift;
         $ctx->ok( 0, 'no warnings' );
         $ctx->diag( $_[0] );
-    } $_[0];
+    }
+    $_[0];
 
     return unless $echo;
 
