@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Make the event return false for increments_count, so warnings-related
+  failures don't cause test count issues.
+
+
 0.01     2016-05-22
 
 - First release upon an unsuspecting world.

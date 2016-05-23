@@ -16,7 +16,7 @@ sub init {
 sub summary { 'Unexpected warning: ' . $_[0]->{ +WARNING } }
 
 sub causes_fail      {1}
-sub increments_count {1}
+sub increments_count {0}
 sub diagnostics      {1}
 
 1;
