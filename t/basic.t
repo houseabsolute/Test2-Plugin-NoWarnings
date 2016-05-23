@@ -21,7 +21,7 @@ is(
         };
         event Warning => sub {
             call causes_fail => T();
-            call warning => match qr/^Unexpected warning: Oh noes!/;
+            call warning     => match qr/^Unexpected warning: Oh noes!/;
         };
         event Ok => sub {
             call pass => T();
