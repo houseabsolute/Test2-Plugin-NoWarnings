@@ -3,6 +3,8 @@ package Test2::Event::Warning;
 use strict;
 use warnings;
 
+our $VERSION = '0.01';
+
 use parent 'Test2::Event';
 
 use Test2::Util::HashBase qw( warning );
@@ -22,6 +24,8 @@ sub diagnostics      {1}
 # ABSTRACT: A Test2 event for warnings
 
 __END__
+
+=for Pod::Coverage init
 
 =head1 DESCRIPTION
 
