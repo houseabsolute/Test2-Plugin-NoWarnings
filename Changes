@@ -3,6 +3,9 @@
 - Make the event return false for increments_count, so warnings-related
   failures don't cause test count issues.
 
+- Make the plugin add a prefix to the warning message rather than adding it in
+  the event class's summary method.
+
 
 0.01     2016-05-22
 

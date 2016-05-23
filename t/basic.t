@@ -20,7 +20,7 @@ is(
             call pass => T();
         };
         event Warning => sub {
-            call warning => match qr/^Oh noes!/;
+            call warning => match qr/^Unexpected warning: Oh noes!/;
         };
         event Ok => sub {
             call pass => T();

@@ -13,7 +13,7 @@ sub init {
     $_[0]->{ +WARNING } = 'undef' unless defined $_[0]->{ +WARNING };
 }
 
-sub summary { 'Unexpected warning: ' . $_[0]->{ +WARNING } }
+sub summary { $_[0]->{ +WARNING } }
 
 sub causes_fail      {1}
 sub increments_count {0}
