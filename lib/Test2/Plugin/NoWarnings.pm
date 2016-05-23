@@ -3,7 +3,7 @@ package Test2::Plugin::NoWarnings;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Test2::API qw( context_do );
 
