@@ -19,17 +19,13 @@ is(
         event Ok => sub {
             call pass => T();
         };
-        event Ok => sub {
-            call pass => F();
-            call name => 'no warnings';
-        };
-        event 'Diag';
-        event Diag => sub {
-            call message => match qr/^Oh noes!/;
+        event Warning => sub {
+            call warning => match qr/^Oh noes!/;
         };
         event Ok => sub {
             call pass => T();
         };
+        end();
     }
 );
 

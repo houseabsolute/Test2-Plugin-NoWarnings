@@ -21,8 +21,7 @@ my $_orig_warn_handler = $SIG{__WARN__};
 $SIG{__WARN__} = sub {
     context_do {
         my $ctx = shift;
-        $ctx->ok( 0, 'no warnings' );
-        $ctx->diag( $_[0] );
+        $ctx->send_event( 'Warning', warning => $_[0] );
     }
     $_[0];
 
