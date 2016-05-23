@@ -5,7 +5,7 @@ our $VERSION = '0.01';
 
 use Test2::API qw( intercept );
 use Test2::Bundle::Extended;
-use Test2::Plugin::NoWarnings echo => 0;
+use Test2::Plugin::NoWarnings;
 
 my $events = intercept {
     ok(1);
