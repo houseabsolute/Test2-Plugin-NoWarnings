@@ -4,7 +4,7 @@ Test2::Plugin::NoWarnings - Fail if tests warn
 
 # VERSION
 
-version 0.01
+version 0.02
 
 # SYNOPSIS
 
