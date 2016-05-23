@@ -1,5 +1,8 @@
 requires "Carp" => "0";
 requires "Test2::API" => "0";
+requires "Test2::Event" => "0";
+requires "Test2::Util::HashBase" => "0";
+requires "parent" => "0";
 requires "strict" => "0";
 requires "warnings" => "0";
 

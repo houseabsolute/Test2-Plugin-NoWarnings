@@ -18,6 +18,9 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Carp" => 0,
     "Test2::API" => 0,
+    "Test2::Event" => 0,
+    "Test2::Util::HashBase" => 0,
+    "parent" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -40,7 +43,10 @@ my %FallbackPrereqs = (
   "File::Spec" => 0,
   "Test2::API" => 0,
   "Test2::Bundle::Extended" => 0,
+  "Test2::Event" => 0,
+  "Test2::Util::HashBase" => 0,
   "Test::More" => "0.96",
+  "parent" => 0,
   "strict" => 0,
   "warnings" => 0
 );
