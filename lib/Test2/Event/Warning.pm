@@ -7,15 +7,15 @@ our $VERSION = '0.02';
 
 use parent 'Test2::Event';
 
-use Test2::Util::HashBase qw( warning );
+use Test2::Util::HashBase qw( causes_fail warning );
 
 sub init {
-    $_[0]->{ +WARNING } = 'undef' unless defined $_[0]->{ +WARNING };
+    $_[0]->{ +CAUSES_FAIL } = 1       unless exists $_[0]->{ +CAUSES_FAIL };
+    $_[0]->{ +WARNING }     = 'undef' unless defined $_[0]->{ +WARNING };
 }
 
 sub summary { $_[0]->{ +WARNING } }
 
-sub causes_fail      {1}
 sub increments_count {0}
 sub diagnostics      {1}
 
