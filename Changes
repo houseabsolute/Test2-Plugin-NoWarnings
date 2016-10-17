@@ -6,6 +6,12 @@
   entirely. Reported by Todd Rinaldo in
   https://github.com/Test-More/test-more/issues/729.
 
+- The Test2::Event::Warning event now returns true for increments_count. That
+  means that the test failure caused by a warning will not be output as a TAP
+  test line. Previously this was just seen as a diag line, which could be
+  quite confusing. Reported by Todd Rinaldo in
+  https://github.com/Test-More/test-more/issues/728
+
 
 0.02     2016-05-23
 

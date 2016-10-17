@@ -18,8 +18,9 @@ is(
             call pass => T();
         };
         event Warning => sub {
-            call causes_fail => T();
-            call warning     => match qr/^Unexpected warning: Oh noes!/;
+            call causes_fail      => T();
+            call increments_count => T();
+            call warning          => match qr/^Unexpected warning: Oh noes!/;
         };
         event Ok => sub {
             call pass => T();

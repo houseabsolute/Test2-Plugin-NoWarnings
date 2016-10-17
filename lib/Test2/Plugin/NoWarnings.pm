@@ -16,42 +16,44 @@ sub import {
     return;
 }
 
-my $_orig_warn_handler = $SIG{__WARN__};
+INIT {
+    my $_orig_warn_handler = $SIG{__WARN__};
 ## no critic (Variables::RequireLocalizedPunctuationVars)
-$SIG{__WARN__} = sub {
-    context_do {
-        my $ctx = shift;
-        $ctx->send_event(
-            'Warning',
-            warning => 'Unexpected warning: ' . $_[0]
-        );
-    }
-    $_[0];
+    $SIG{__WARN__} = sub {
+        context_do {
+            my $ctx = shift;
+            $ctx->send_event(
+                'Warning',
+                warning => 'Unexpected warning: ' . $_[0]
+            );
+        }
+        $_[0];
 
-    return unless $echo;
+        return unless $echo;
 
-    return if $_orig_warn_handler && $_orig_warn_handler eq 'IGNORE';
+        return if $_orig_warn_handler && $_orig_warn_handler eq 'IGNORE';
 
-    # The rest was copied from Test::Warnings
+        # The rest was copied from Test::Warnings
 
-    # TODO: this doesn't handle blessed coderefs... does anyone care?
-    goto &$_orig_warn_handler
-        if $_orig_warn_handler
-        and (
-        ( ref $_orig_warn_handler eq 'CODE' )
-        or (    $_orig_warn_handler ne 'DEFAULT'
-            and $_orig_warn_handler ne 'IGNORE'
-            and defined &$_orig_warn_handler )
-        );
+        # TODO: this doesn't handle blessed coderefs... does anyone care?
+        goto &$_orig_warn_handler
+            if $_orig_warn_handler
+            and (
+            ( ref $_orig_warn_handler eq 'CODE' )
+            or (    $_orig_warn_handler ne 'DEFAULT'
+                and $_orig_warn_handler ne 'IGNORE'
+                and defined &$_orig_warn_handler )
+            );
 
-    if ( $_[0] =~ /\n$/ ) {
-        warn $_[0];
-    }
-    else {
-        require Carp;
-        Carp::carp( $_[0] );
-    }
-};
+        if ( $_[0] =~ /\n$/ ) {
+            warn $_[0];
+        }
+        else {
+            require Carp;
+            Carp::carp( $_[0] );
+        }
+    };
+}
 
 1;
 
