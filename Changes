@@ -1,5 +1,12 @@
 {{$NEXT}}
 
+- Add the $SIG{__WARN__} hook in an INIT block. We really don't want to
+  trigger this because of a compile-time warning, and because of a bug in
+  Test::Builder, this can actually cause the warning to be lost
+  entirely. Reported by Todd Rinaldo in
+  https://github.com/Test-More/test-more/issues/729.
+
+
 0.02     2016-05-23
 
 - Make the event return false for increments_count, so warnings-related

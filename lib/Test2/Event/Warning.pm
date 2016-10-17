@@ -16,7 +16,7 @@ sub init {
 
 sub summary { $_[0]->{ +WARNING } }
 
-sub increments_count {0}
+sub increments_count {1}
 sub diagnostics      {1}
 
 1;
