@@ -1,8 +1,6 @@
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
-
 use Test2::API qw( intercept );
 use Test2::Bundle::Extended;
 use Test2::Plugin::NoWarnings;
