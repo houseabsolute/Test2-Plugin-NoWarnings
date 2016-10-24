@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.04     2016-10-23
+
 - Load Test2::Event::Warning in the plugin instead of relying on Test2 to do
   it for us. This should avoid the bug reported by Todd Rinaldo and eliminates
   the need for the INIT block, which caused it's own problems.
