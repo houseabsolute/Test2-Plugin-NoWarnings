@@ -7,6 +7,8 @@ use Test2::Require::Module 'IPC::Run3';
 
 use IPC::Run3 qw( run3 );
 
+plan skip_all 'IPC::Run3 does not play well with Windows' if $^O eq 'MSWin32';
+
 my $code = <<'EOF';
 use strict;
 use warnings;
