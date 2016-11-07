@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.05     2016-11-07
+
 - Skip compile.t on Windows. This test uses IPC::Run3 which doesn't seem to
   work well on that platform. Fixed RT #118443. Reported by Alexandr Ciornii.
 
