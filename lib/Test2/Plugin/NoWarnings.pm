@@ -20,11 +20,14 @@ sub import {
 my $_orig_warn_handler = $SIG{__WARN__};
 ## no critic (Variables::RequireLocalizedPunctuationVars)
 $SIG{__WARN__} = sub {
+    my $w = $_[0];
+    $w =~ s/\n+$//g;
+
     context_do {
         my $ctx = shift;
         $ctx->send_event(
-            'Warning',
-            warning => 'Unexpected warning: ' . $_[0]
+            'Ok',
+            name => "Unexpected warning: $w",
         );
     }
     $_[0];
