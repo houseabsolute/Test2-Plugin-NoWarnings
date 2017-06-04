@@ -3,7 +3,7 @@ package Test2::Plugin::NoWarnings;
 use strict;
 use warnings;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use Test2::API qw( context_do );
 use Test2::Event::Warning;
