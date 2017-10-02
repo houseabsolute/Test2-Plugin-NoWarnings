@@ -5,6 +5,7 @@ use warnings;
 
 our $VERSION = '0.07';
 
+use Test2 1.302096;
 use Test2::API qw( context_do );
 use Test2::Event::Warning;
 
@@ -26,8 +27,8 @@ $SIG{__WARN__} = sub {
     context_do {
         my $ctx = shift;
         $ctx->send_event(
-            'Ok',
-            name => "Unexpected warning: $w",
+            'Warning',
+            warning => "Unexpected warning: $w",
         );
     }
     $_[0];

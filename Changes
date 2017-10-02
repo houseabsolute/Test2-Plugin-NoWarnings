@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Reverted back to using the Warning event type, since the bug in the Test2
+  core that caused this to be a problem has since been fixed.
+
+
 0.06     2017-06-04
 
 - Warnings inside a subtest were not emitted as TAP events, breaking the TAP
