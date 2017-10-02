@@ -3,7 +3,7 @@ use warnings;
 
 use Capture::Tiny qw( capture );
 
-use Test2::Bundle::Extended;
+use Test2::V0;
 
 my $output = capture {
 
@@ -14,7 +14,7 @@ my $output = capture {
 use strict;
 use warnings;
 
-use Test2::Bundle::Extended;
+use Test2::V0;
 use Test2::Plugin::NoWarnings;
 
 ok(1);
