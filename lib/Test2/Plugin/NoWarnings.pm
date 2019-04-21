@@ -66,7 +66,7 @@ __END__
 
 =head1 SYNOPSIS
 
-    use Test2::Bundle::Extended;
+    use Test2::V0;
     use Test2::Plugin::NoWarnings;
 
     ...;
