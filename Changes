@@ -3,6 +3,8 @@
 - Reverted back to using the Warning event type, since the bug in the Test2
   core that caused this to be a problem has since been fixed.
 
+- Replaced use of Test2::Bundle::Extended with Test2::V0.
+
 
 0.06     2017-06-04
 
