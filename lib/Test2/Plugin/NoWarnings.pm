@@ -6,7 +6,7 @@ use warnings;
 our $VERSION = '0.09';
 
 use Test2 1.302096;
-use Test2::API qw( context_do );
+use Test2::API qw( context_do test2_is_testing_done );
 use Test2::Event::Warning;
 
 my $echo = 0;
@@ -21,19 +21,21 @@ sub import {
 my $_orig_warn_handler = $SIG{__WARN__};
 ## no critic (Variables::RequireLocalizedPunctuationVars)
 $SIG{__WARN__} = sub {
-    my $w = $_[0];
-    $w =~ s/\n+$//g;
+    unless ( test2_is_testing_done() ) {
+        my $w = $_[0];
+        $w =~ s/\n+$//g;
 
-    context_do {
-        my $ctx = shift;
-        $ctx->send_event(
-            'Warning',
-            warning => "Unexpected warning: $w",
-        );
+        context_do {
+            my $ctx = shift;
+            $ctx->send_event(
+                'Warning',
+                warning => "Unexpected warning: $w",
+            );
+        }
+        $_[0];
+
+        return unless $echo;
     }
-    $_[0];
-
-    return unless $echo;
 
     return if $_orig_warn_handler && $_orig_warn_handler eq 'IGNORE';
 
