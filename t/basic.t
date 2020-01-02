@@ -73,3 +73,6 @@ use Test2::Plugin::NoWarnings;
 }
 
 done_testing();
+
+# Make sure we respect done_testing()
+warn "This should not cause the test to fail!\n";
