@@ -5,7 +5,8 @@ use warnings;
 
 our $VERSION = '0.09';
 
-use Test2 1.302096;
+# This is the version that added test2_is_testing_done.
+use Test2 1.302167;
 use Test2::API qw( context_do test2_is_testing_done );
 use Test2::Event::Warning;
 
