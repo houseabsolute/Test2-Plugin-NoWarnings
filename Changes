@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.10     2024-04-07
+
 - Previous, when tests were run via prove without the verbose flag and there
   was a warning that caused a test failure, there was no output indicating
   that a warning caused the failure. This has now been corrected and you'll
