@@ -1,6 +1,14 @@
 use strict;
 use warnings;
 
+# We load this here _before_ Test2::Plugin::NoWarnings because if we run tests
+# with 5.18, we get a warning from the version of Module::Pluggable shipped in
+# the 5.18 core. The warning says that Module::Pluggable will be removed from
+# the core. That warning causes our tests to fail.
+#
+# Module::Pluggable is used by the Test2::API::InterceptResult::Event package.
+use Module::Pluggable;
+
 use Test2::API qw( intercept );
 use Test2::V0;
 use Test2::Plugin::NoWarnings;
