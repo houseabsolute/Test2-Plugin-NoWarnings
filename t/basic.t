@@ -19,8 +19,13 @@ use Test2::Plugin::NoWarnings;
                 call pass => T();
             };
             event Warning => sub {
-                call causes_fail      => T();
-                call increments_count => T();
+                call facets => hash {
+                    field assert => object {
+                        call pass => F();
+                        call details => match
+                            qr/^Unexpected warning: Oh noes!/,;
+                    }
+                };
                 call warning => match qr/^Unexpected warning: Oh noes!/;
             };
             event Ok => sub {
@@ -50,10 +55,13 @@ use Test2::Plugin::NoWarnings;
                 call pass      => F();
                 call subevents => array {
                     event Warning => sub {
-                        call causes_fail      => T();
-                        call increments_count => T();
-                        call warning          => match
-                            qr/^Unexpected warning: Oh noes!/;
+                        call facets => hash {
+                            field assert => object {
+                                call pass => F();
+                                call details => match
+                                    qr/^Unexpected warning: Oh noes!/,;
+                            }
+                        }
                     };
                     event Ok => sub {
                         call pass => T();
