@@ -3,7 +3,7 @@ package Test2::Plugin::NoWarnings;
 use strict;
 use warnings;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 # This is the version that added test2_is_testing_done.
 use Test2 1.302167;

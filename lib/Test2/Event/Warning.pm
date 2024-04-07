@@ -3,7 +3,7 @@ package Test2::Event::Warning;
 use strict;
 use warnings;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 use parent 'Test2::Event';
 
